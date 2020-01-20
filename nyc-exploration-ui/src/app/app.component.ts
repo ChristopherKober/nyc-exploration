@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Sequelize } from '@angular/sequelize';
+import { DatabaseService } from './app.service'
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -7,33 +8,30 @@ import { Sequelize } from '@angular/sequelize';
   styleUrls: ['./app.component.css']
 })
 
-  //@Component({
-  //  selector: 'app-dal-test',
-  //  template: '<h3>test</h3>'
-  //})
-
 export class AppComponent {
   title = 'nyc-exploration';
   data = 'sample text';
+  _DatabaseService;
+
+  constructor(private http: HttpClient) {
+    this._DatabaseService = new DatabaseService(http)
+
+    console.log('Constructed')
+  }
 
   ngOnInit() {
-    this.fetchDB()
+    this.getData()
+
+    console.log('init')
   }
 
-  private fetchDB() {
-    const client = new Client({
-      connectionString: ""
-    })
+  getData() {
 
-    client.connect()
-
-    client.query('SELECT * FROM NYC_EVENTS', (err, res) => {
-      console.log(err, res)
-      client.end()
-    })
+    console.log('inside getData')
+    this._DatabaseService.getEvents().subscribe(
+      data => { this.data = data },
+      err => { console.log(err) },
+      () => { console.log('done loading data') }
+    )
   }
 }
-
-//export class DalTest {
-//  s = (new DALManager()).BasicSelect
-//}
