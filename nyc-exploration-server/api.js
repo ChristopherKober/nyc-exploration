@@ -1,4 +1,4 @@
-//const express = require('express')
+const express = require('express')
 const { Client } = require('pg')
 
 module.exports = {
@@ -31,6 +31,9 @@ module.exports = {
                     else {
                         try {
                             res.statusCode = 200;
+                            res.set('Access-Control-Allow-Origin', '*')
+                            res.set('Access-Control-Allow-Methods', 'GET, POST')
+                            res.set('Access-Control-Allow-Headers', 'Origin, Content-Type')
                             res.end(JSON.stringify(data["rows"]))
                         } catch
                         {
@@ -41,6 +44,14 @@ module.exports = {
 
                     client.end()
                 })
+            })
+        app
+            .options('/events', (req, res) => {
+                res.statusCode = 200
+                res.set('Access-Control-Allow-Origin', '*')
+                res.set('Access-Control-Allow-Methods', 'GET, POST')
+                res.set('Access-Control-Allow-Headers', 'Origin, Content-Type')
+                res.end()
             })
     }
 
