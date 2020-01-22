@@ -29,7 +29,7 @@ export class AppComponent {
 
     console.log('inside getData')
     this._DatabaseService.getEvents().subscribe(
-      data => { this.data = data },
+      data => { this.data = JSON.stringify(data) },
       err => { console.log(err) },
       () => { console.log('done loading data') }
     )
