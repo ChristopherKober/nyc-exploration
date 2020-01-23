@@ -11,7 +11,8 @@
   "license": "LGPL-3.0-only",
   "dependencies": {
     "express": "^4.17.1",
-    "pg": "^7.17.1"
+    "pg": "^7.17.1",
+    "atob": "^2.1.2"
   },
   "engines": {
     "node": "12.x"
