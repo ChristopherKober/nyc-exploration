@@ -1,6 +1,6 @@
 const express = require('express')
 const PORT = process.env.PORT || 5000
-const api = require('./api')
+const api = require('./api/api')
 
 const app = express()
 
