@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import { DatabaseService } from './app.service';
 import { HttpClientModule } from '@angular/common/http';
 import { TimelineComponent } from './timeline/timeline.component';
+import { InteractiveMapComponent } from './interactive-map/interactive-map.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TimelineComponent
+    TimelineComponent,
+    InteractiveMapComponent
   ],
   imports: [
     BrowserModule,

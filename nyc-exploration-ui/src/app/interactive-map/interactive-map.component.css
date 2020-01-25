@@ -1,0 +1,28 @@
+* {
+  transition: all 200ms ease-out;
+  overflow: visible
+}
+
+.container {
+  position: relative;
+  width: 600px;
+  left: 50%;
+  top: 50%;
+  margin-left: -300px;
+  /*margin-top: -230px;*/
+
+  padding-bottom: 150px;
+}
+
+  .container:hover g path, .container:active g path {
+    opacity: 0.8;
+  }
+
+    .container:hover g path:hover, .container:active g path:active {
+      opacity: 1;
+    }
+
+g path:hover {
+  fill: #333;
+  cursor: pointer;
+}
