@@ -1,0 +1,76 @@
+<div class="form-style-2">
+  <div class="form-style-2-heading">Add Event</div>
+  <form [formGroup]="_newEventGroup" (ngSubmit)="submit()">
+    <label for="field1"><span>Name</span><input formControlName="eventName" type="text" class="input-field" name="field1" value="" /></label>
+    <label for="field2">
+      <span>Type</span><select formControlName="eventType" name="field2" class="select-field">
+        <option value="Bar">Bar</option>
+        <option value="Restaurant">Restaurant</option>
+        <option value="Museum">Museum</option>
+        <option value="Activity">Activity</option>
+      </select>
+    </label>
+    <label for="field3">
+      <span>Neighborhood</span><select formControlName="eventNeighborhood" name="field3" class="select-field">
+        <option value="Murray Hill">Murray Hill</option>
+        <option value="Kips Bay">Kips Bay</option>
+      </select>
+    </label>
+
+    <label for="field4">
+      <span>Date</span>
+      <mat-form-field class="example-full-width">
+        <input matInput [matDatepicker]="picker" placeholder="" formControlName="eventDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #picker></mat-datepicker>
+      </mat-form-field>
+    </label>
+
+    <label for="field5"><span>Comments</span><input formControlName="eventComments" type="text" class="input-field" name="field5" value="" /></label>
+
+    <label><span> </span><input type="submit" value="Submit" /></label>
+  </form>
+</div>
+
+<!--<form class="form-card" id="basicExample" [formGroup]="_newEventGroup" (ngSubmit)="submit()">
+    <fieldset class="form-fieldset">
+      <div class="form-element form-input">
+        <input id="field-event-name" formControlName="eventName" class="form-element-field" placeholder="Please fill in the event name" required />
+        <div class="form-element-bar"></div>
+        <label class="form-element-label" for="field-event-name">Event Name</label>
+      </div>
+      <label class="form-element-label" for="field-neighborhood">Select the neighborhood</label>
+      <div class="form-element form-select">
+        <select id="field-event-type" formControlName="eventType" class="form-element-field">
+          <option disabled selected value="" class="form-select-placeholder"></option>
+          <option value="Bar">Bar</option>
+          <option value="Restaurant">Restaurant</option>
+          <option value="Museum">Museum</option>
+          <option value="Activity">Activity</option>
+        </select>
+        <div class="form-element-bar"></div>
+        <label class="form-element-label" for="field-event-type">Select the event type</label>
+      </div>
+      <div class="form-element form-select">
+        <select id="field-neighborhood" class="form-element-field">
+          <option disabled selected value="" class="form-select-placeholder"></option>
+          <option value="Murray Hill">Murray Hill</option>
+          <option value="Kips Bay">Kips Bay</option>
+        </select>
+        <div class="form-element-bar"></div>
+
+      </div>
+
+      <div class="form-element form-select">
+        <mat-form-field class="example-full-width">
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker touchUi #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </fieldset>
+    <div class="form-actions">
+      <button class="form-btn" type="submit" onclick="submit()">Save</button>
+    </div>
+  </form>
+<button class="form-btn" (click)="submit()">Save</button>-->
