@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { DatabaseService } from './app.service'
 import { HttpClient, HttpHandler } from '@angular/common/http';
+import { InputFormComponent } from './input-form/input-form.component';
+import { MatDialog, MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -12,26 +14,33 @@ export class AppComponent {
   title = 'nyc-exploration';
   data = 'sample text';
   _DatabaseService;
+  _dialog;
 
-  constructor(private http: HttpClient) {
+  fileNameDialogRef: MatDialogRef<InputFormComponent>;
+
+  //@ViewChild('myModal', {static: false}) modal: InputFormComponent;
+
+  constructor(private http: HttpClient, private dialog: MatDialog) {
     this._DatabaseService = new DatabaseService(http)
-
-    console.log('Constructed')
+    this._dialog = dialog
   }
 
   ngOnInit() {
     this.getData()
-
-    console.log('init')
   }
 
   getData() {
-
-    console.log('inside getData')
     this._DatabaseService.getEvents().subscribe(
       data => { this.data = JSON.stringify(data) },
       err => { console.log(err) },
-      () => { console.log('done loading data') }
+      () => { }
     )
+  }
+
+  openInputDialog() {
+    this.fileNameDialogRef = this._dialog.open(InputFormComponent, {
+      height: '450px',
+      width: '500px',
+    });
   }
 }
