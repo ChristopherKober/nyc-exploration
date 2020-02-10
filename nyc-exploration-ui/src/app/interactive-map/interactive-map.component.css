@@ -4,25 +4,34 @@
 }
 
 .container {
-  position: relative;
-  width: 600px;
-  left: 50%;
-  top: 50%;
-  margin-left: -300px;
-  /*margin-top: -230px;*/
-
-  padding-bottom: 150px;
+  height: 80vh;
+  width: 100%;
+  text-align:center;
 }
 
-  .container:hover g path, .container:active g path {
-    opacity: 0.8;
+  .container path {
+    opacity: 0.7;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    /*
+     Introduced in Internet Explorer 10.
+     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+   */
+    -ms-user-select: none;
+    user-select: none;
   }
 
-    .container:hover g path:hover, .container:active g path:active {
-      opacity: 1;
-    }
+.container:hover path:hover {
+  opacity: 1;
+}
 
-g path:hover {
-  fill: #333;
-  cursor: pointer;
+.container:active path:active {
+  opacity: 1;
+}
+
+svg {
+  height: 100%;
+  border: 1px solid green;
+  display: inline-block;
 }
