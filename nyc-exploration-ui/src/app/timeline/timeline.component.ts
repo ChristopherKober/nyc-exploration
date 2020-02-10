@@ -11,6 +11,7 @@ export class TimelineComponent implements OnInit {
 
   public timelineData = [{ "EVENT_ID": 1, "EVENT_TYPE": "Meal", "EVENT_NAME": "Da Andrea", "NEIGHBORHOOD_ID": 7, "EVENT_DATE": "1/17/2020", "EVENT_RATING": 4, "COMMENTS": null }, { "EVENT_ID": 2, "EVENT_TYPE": "Meal", "EVENT_NAME": "Jones Wood Foundry", "NEIGHBORHOOD_ID": 36, "EVENT_DATE": "1/18/2020", "EVENT_RATING": 4, "COMMENTS": null }];
   _DatabaseService;
+  _headline = "Timeline";
 
   constructor(private http: HttpClient) {
     this._DatabaseService = new TimelineDatabaseService(http)
@@ -18,6 +19,10 @@ export class TimelineComponent implements OnInit {
 
   ngOnInit() {
     this.getData()
+  }
+
+  public setNeighborhood(neighborhoodId) {
+    this._headline = "Neighborhood" + neighborhoodId;
   }
 
   getData() {
