@@ -18,8 +18,6 @@ export class AppComponent {
 
   fileNameDialogRef: MatDialogRef<InputFormComponent>;
 
-  //@ViewChild('myModal', {static: false}) modal: InputFormComponent;
-
   constructor(private http: HttpClient, private dialog: MatDialog) {
     this._DatabaseService = new DatabaseService(http)
     this._dialog = dialog
