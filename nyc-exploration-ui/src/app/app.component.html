@@ -1,32 +1,29 @@
-<body>
-  <div class="titleBar">
-    <a class="linkNoStyle" href="https://www.chriskober.com/">
-      <div class="titleName titleButton">
-        <p>Chris Kober</p>
-      </div>
-    </a>
-    <div class="titleLinks">
-      <a class="titleLink linkNoStyle" href="https://www.chriskober.com/">About Me</a>
-      <a class="titleLink linkNoStyle" href="https://www.chriskober.com/">Projects</a>
-      <a class="titleLink linkNoStyle" href="https://www.chriskober.com/">Contact</a>
+<div class="titleBar">
+  <a class="linkNoStyle" href="https://www.chriskober.com/">
+    <div class="titleName titleButton">
+      <p>Chris Kober</p>
     </div>
+  </a>
+  <div class="titleLinks">
+    <a class="titleLink linkNoStyle" href="https://www.chriskober.com/">About Me</a>
+    <a class="titleLink linkNoStyle" href="https://www.chriskober.com/">Projects</a>
+    <a class="titleLink linkNoStyle" href="https://www.chriskober.com/">Contact</a>
   </div>
+</div>
 
 
+<main>
   <h1>Manhattan Neighborhood Exploration</h1>
 
-  <!--<form>
-    <input type="text" placeholder="Name">
-    <input type="email" placeholder="Email Address">
-    <input type="submit" value="Subscribe">
-  </form>-->
+  <div class="responsiveSection">
+    <div class="selectionSection">
+      <button (click)="openInputDialog()" class="bubbly-button">Add Event</button>
+      <app-interactive-map></app-interactive-map>
+    </div>
 
-
-  <button (click)="openInputDialog()" class="bubbly-button">Add Event</button>
-  <app-interactive-map></app-interactive-map>
-
-  <app-timeline></app-timeline>
-
-  <router-outlet></router-outlet>
-
-</body>
+    <div class="timelineSection">
+      <app-timeline></app-timeline>
+    </div>
+  </div>
+  <!--<router-outlet></router-outlet>-->
+</main>
