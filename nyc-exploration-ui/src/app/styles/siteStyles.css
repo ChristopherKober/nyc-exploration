@@ -1,0 +1,50 @@
+/* TITLE BAR */
+.titleBar {
+  width: 100%;
+  height: 80px;
+  background: ghostwhite;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titleLinks {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.titleName {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  padding-left: 0.5em;
+}
+
+.linkNoStyle {
+  text-decoration: none;
+  color: inherit;
+}
+
+.titleLink {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0px 16px;
+}
+
+.titleLink:hover {
+  box-shadow: inset 0 -4px 0 0 black;
+}
+
+/*BODY STYLES*/
+body {
+  background: whitesmoke;
+  font-family: 'Roboto Slab', serif;
+  margin: 0;
+}
+
+main {
+    padding: 0px 15%;
+}
