@@ -12,7 +12,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "pg": "^7.17.1",
-    "atob": "^2.1.2"
+    "atob": "^2.1.2",
+    "connect-timeout": "^1.9.0"
   },
   "engines": {
     "node": "12.x"
