@@ -1,15 +1,16 @@
 const { atob } = require('atob')
 
-const dbProcedures = require('../DAL/dbProcedures')
-
 module.exports = {
-    authenticate: async function (req) {
+    authenticate: async function (body, auth) {
         try {
-            var requestPassword = getPasswordFromRequest(req)
-            var databasePasswords = await dbProcedures.getPasswordsFromDatabase()
+            console.log("entered");
+            var requestPassword = getPasswordFromRequest(body);
 
-            for (var i = 0; i < databasePasswords['rows'].length; i++) {
-                var databasePassword = databasePasswords['rows'][i]
+            for (var i = 0; i < auth['rows'].length; i++) {
+                var databasePassword = auth['rows'][i]
+
+                console.log(databasePassword['PASSWORD_HASH']);
+                console.log(requestPassword);
 
                 if (databasePassword['PASSWORD_HASH'] === requestPassword) {
                     return true
@@ -18,16 +19,17 @@ module.exports = {
 
             return false
         } catch (err) {
+            console.log(err);
             return false
         }
     }
 };
 
-function getPasswordFromRequest(req) {
-    var basicToken = req.get('Authorization').split(" ")[1]
-    var decodedToken = atob(basicToken)
-    var password = decodedToken.split(":")[1]
+function getPasswordFromRequest(body) {
+    //var basicToken = req.get('Authorization').split(" ")[1]
+    //var decodedToken = atob(basicToken)
+    //var password = decodedToken.split(":")[1]
 
-    return password
+    return body.password;
 }
 
