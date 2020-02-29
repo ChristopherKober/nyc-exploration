@@ -10,14 +10,12 @@ h1 {
 
 
 .selectionSection {
-  border: 1px solid green;
   flex-grow: 1;
   min-width: 374px;
   text-align: center;
 }
 
 .timelineSection {
-  border: 1px solid blue;
   flex-grow: 1;
   min-width: 400px;
 }

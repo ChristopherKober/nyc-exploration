@@ -37,7 +37,7 @@ export class AppComponent {
 
   openInputDialog() {
     this.fileNameDialogRef = this._dialog.open(InputFormComponent, {
-      height: '450px',
+      height: '520px',
       width: '500px',
     });
   }

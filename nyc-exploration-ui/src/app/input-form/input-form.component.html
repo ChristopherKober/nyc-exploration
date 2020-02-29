@@ -12,7 +12,7 @@
     </label>
     <label for="field3">
       <span>Neighborhood</span><select formControlName="eventNeighborhood" name="field3" class="select-field">
-        <option value="Murray Hill">Murray Hill</option>
+        <option value="{{n.NEIGHBORHOOD_ID}}" *ngFor="let n of neighborhoodList">{{n.DISPLAY_NAME}}</option>
         <option value="Kips Bay">Kips Bay</option>
       </select>
     </label>
@@ -26,7 +26,11 @@
       </mat-form-field>
     </label>
 
-    <label for="field5"><span>Comments</span><input formControlName="eventComments" type="text" class="input-field" name="field5" value="" /></label>
+    <label for="field5"><span>Rating</span><input formControlName="eventRating" type="text" class="input-field" name="field5" value="" /></label>
+
+    <label for="field6"><span>Password</span><input formControlName="password" type="password" class="input-field" name="field6" value="" /></label>
+
+    <label for="field7"><span>Comments</span><input formControlName="eventComments" type="text" class="input-field" name="field7" value="" /></label>
 
     <label><span> </span><input type="submit" value="Submit" /></label>
   </form>
